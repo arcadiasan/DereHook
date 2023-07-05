@@ -74,6 +74,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>version</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>version</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -126,7 +129,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <ModuleDefinitionFile>./proxy/version.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\proxy\version.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>.\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libMinHook-x64-v141-mdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -144,16 +147,18 @@
       </PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>.\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <ModuleDefinitionFile>version.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\proxy\version.def</ModuleDefinitionFile>
       <AdditionalDependencies>libMinHook-x64-v141-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>.\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
