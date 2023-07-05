@@ -68,6 +68,9 @@ namespace
 
 			MH_EnableHook(mono_image_open);
 
+			MH_DisableHook(&LoadLibraryW);
+			MH_RemoveHook(&LoadLibraryW);
+
 			return mono_runtime;
 		}
 
