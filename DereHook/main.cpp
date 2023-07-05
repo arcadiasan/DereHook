@@ -18,14 +18,6 @@ BOOL APIENTRY DllMain(
         AllocConsole();
         freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
 
-        char buffer[MAX_PATH + 1];
-        GetModuleFileNameA(nullptr, buffer, MAX_PATH);
-        std::cout << "Module name: " << buffer << "\n";
-        
-        fs::path module_path(buffer);
-        if (module_path.filename() != "imascgstage.exe")
-            return -1;
-
         init_hook();
 
     }
